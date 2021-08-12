@@ -1,0 +1,38 @@
+// Variables
+
+// --Primary Colors
+$qwerty-black: #323232;
+$qwerty-silver: #afafaf;
+$qwerty-white: #ffffff;
+
+// --Secondary Colors
+$qwerty-darkblack: #000000;
+$qwerty-mercury: #e1e1e1;
+$qwerty-alabaster: #fafafa;
+
+// --Text Styles
+$pageheader: 3.75rem;
+$sectionHeader: 2.25rem;
+$subHeader: 1.5rem;
+$bodyCopy: 0.875rem;
+$footerCopy: 0.875rem;
+$labelsAndButtons: 0.75rem;
+
+// --Text Styles(Mobile)
+$pageheaderMobile: 1.5rem;
+$sectionHeaderMobile: 1.5rem;
+$subHeaderMobile: 0.875rem;
+$bodyCopyMobile: 0.8125rem;
+$footerCopyMobile: 0.8125rem;
+$labelsAndButtonsMobile: 0.625rem;
+
+// --FontWeight
+$light: 100;
+$regular: 400;
+$demi: 600;
+$bold: 700;
+
+// --Breakpoint
+$media-desktop: "only screen and (width : 1440px)";
+$media-tablet: "only screen and (min-width : 768px)";
+$media-mobile: "only screen and (min-width : 320px)";
