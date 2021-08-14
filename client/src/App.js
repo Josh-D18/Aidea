@@ -2,15 +2,20 @@ import "./App.scss";
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
+import Ideas from "./components/ideasComponent/Ideas";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <section>
+        <header>
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </header>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/ideas" component={Ideas} />
         </Switch>
-        <Switch></Switch>
-      </div>
+      </section>
     );
   }
 }
