@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
+    "bookshelf": "^1.2.0",
     "cookie-parser": "~1.4.4",
     "create-error": "^0.3.1",
     "debug": "~2.6.9",
