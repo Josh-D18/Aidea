@@ -7,8 +7,8 @@ const User = require("../models/user");
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   User.fetchAll()
-    .then((user) => {
-      res.status(200).json(user);
+    .then((users) => {
+      res.status(200).json(users);
     })
     .catch(() => res.status(400).json({ message: "Error getting users" }));
 
