@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Ideas.scss";
+import { Link } from "react-router-dom";
 
 class Ideas extends Component {
   state = {
@@ -27,10 +28,12 @@ class Ideas extends Component {
         </article>
         <article>
           {this.state.ideas.map((idea) => (
-            <div>
+            <div className="ideas__container">
               <h2 key={idea.id}>{idea.idea}</h2>
               <p>{idea.description}</p>
-              <button>Check out more</button>
+              <Link to={`/ideas/${idea.id}`}>
+                <span>Check out more</span>
+              </Link>
             </div>
           ))}
         </article>

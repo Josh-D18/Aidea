@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 app.use(cors());
 
 app.use("/ideas", ideasRouter);
-app.use("/users", usersRouter);
+app.use("/profile", usersRouter);
 
 app.listen(PORT, () => {
   console.log("Listening to", PORT);

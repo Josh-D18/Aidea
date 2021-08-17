@@ -21,4 +21,15 @@ router.get("/", function (req, res, next) {
   //   .catch((err) => res.send("Error getting users"));
 });
 
+router.get("/:id", (req, res) => {
+  User.where({ id: req.params.id })
+    .fetch({ withRelated: ["idea"] })
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch(() =>
+      res.status(400).json({ message: `Error getting user ${req.params.id}` })
+    );
+});
+
 module.exports = router;
