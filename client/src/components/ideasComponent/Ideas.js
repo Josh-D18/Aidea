@@ -21,6 +21,7 @@ class Ideas extends Component {
   }
 
   render() {
+    const { match } = this.props;
     return (
       <section>
         <article>
@@ -28,10 +29,10 @@ class Ideas extends Component {
         </article>
         <article>
           {this.state.ideas.map((idea) => (
-            <div className="ideas__container">
-              <h2 key={idea.id}>{idea.idea}</h2>
+            <div key={idea.id} className="ideas__container">
+              <h2>{idea.idea}</h2>
               <p>{idea.description}</p>
-              <Link to={`/ideas/${idea.id}`}>
+              <Link to={`${match.url}/${idea.id}`}>
                 <span>Check out more</span>
               </Link>
             </div>

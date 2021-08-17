@@ -9,18 +9,6 @@ function Home() {
   }
   return (
     <section className="background">
-      <header className="home">
-        <nav className="home__navbar">
-          <ul className="home__navbarList">
-            <Link to="/" className="home__navbarItem">
-              <li>Home</li>
-            </Link>
-            <Link to="/about" className="home__navbarItem">
-              <li>About</li>
-            </Link>
-          </ul>
-        </nav>
-      </header>
       <main>
         <article className="home__textContainer">
           <h1 className="home__text">Aidea</h1>
