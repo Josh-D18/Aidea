@@ -3,9 +3,10 @@ var router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 // const knex = require("knex")(require("../knexfile").development);
 const Idea = require("../models/idea");
+const authorize = require("../middleware/authorize");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", authorize, function (req, res, next) {
   Idea.fetchAll()
     .then((ideas) => {
       res.status(200).json(ideas);
@@ -21,7 +22,7 @@ router.get("/", function (req, res, next) {
   //   .catch((err) => res.send("Error getting ideas"));
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", authorize, (req, res) => {
   Idea.where({ id: req.params.id })
     .fetch({ withRelated: ["user"] })
     .then((idea) => {
@@ -32,7 +33,7 @@ router.get("/:id", (req, res) => {
     );
 });
 
-router.post("/", (req, res) => {
+router.post("/", authorize, (req, res) => {
   new Idea({
     idea: req.body.idea,
     description: req.body.description,
@@ -46,7 +47,7 @@ router.post("/", (req, res) => {
     );
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", authorize, (req, res) => {
   Idea.where({ id: req.params.id })
     .fetch()
     .then((idea) => {
@@ -63,7 +64,7 @@ router.put("/:id", (req, res) => {
     );
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", authorize, (req, res) => {
   Idea.where({ id: req.params.id })
     .destroy()
     .then(() => {

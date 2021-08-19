@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Idea.scss";
-import { Link } from "react-router-dom";
 
 class Idea extends Component {
   state = {
     idea: [],
   };
 
+  handleClick = (id) => {
+    this.props.history.push(`/profile/${id}`);
+  };
+
   getIdea = (id) => {
-    axios.get(`http://localhost:8080/ideas/${id}`).then((res) => {
-      this.setState({
-        idea: [res.data],
+    axios
+      .get(`http://localhost:8080/ideas/${id}`, {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        this.setState({
+          idea: [res.data],
+        });
       });
-    });
   };
 
   componentDidMount() {
@@ -33,9 +42,10 @@ class Idea extends Component {
               <p>{idea.description}</p>
               <article>
                 <h3>{idea.user.user_name}</h3>
-                <Link to={`/profile/${idea.user.id}`}>
-                  <span>{idea.user.user_name}'s Profile</span>
-                </Link>
+
+                <button onClick={() => this.handleClick(idea.user.id)}>
+                  {idea.user.user_name}'s Profile
+                </button>
               </article>
             </article>
           ))}

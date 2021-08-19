@@ -9,11 +9,17 @@ class Ideas extends Component {
   };
 
   getIdeas = () => {
-    axios.get("http://localhost:8080/ideas").then((res) => {
-      this.setState({
-        ideas: res.data,
+    axios
+      .get("http://localhost:8080/ideas", {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        this.setState({
+          ideas: res.data,
+        });
       });
-    });
   };
 
   componentDidMount() {
@@ -22,6 +28,7 @@ class Ideas extends Component {
 
   render() {
     const { match } = this.props;
+    console.log(this.state.ideas);
     return (
       <section>
         <article>

@@ -1,25 +1,33 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class Profile extends Component {
   state = {
     profile: [],
   };
 
+  handleClick = (id) => {
+    this.props.history.push(`/ideas/${id}`);
+  };
+
   getProfile = (id) => {
-    axios.get(`http://localhost:8080/profile/${id}`).then((res) => {
-      this.setState({
-        profile: [res.data],
+    axios
+      .get(`http://localhost:8080/profile/${id}`, {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        this.setState({
+          profile: [res.data],
+        });
       });
-    });
   };
   componentDidMount() {
     this.getProfile(this.props.match.params.id);
   }
 
   render() {
-    console.log(this.state.profile);
     return (
       <section>
         <article>
@@ -34,9 +42,13 @@ class Profile extends Component {
                     <h2>{profile.idea[0].idea}</h2>
                     <p>{profile.idea[0].description}</p>
                     <article>
-                      <Link to={`/ideas/${profile.idea[0].user_id}`}>
-                        <span>Check Out This Idea!</span>
-                      </Link>
+                      <button
+                        onClick={() =>
+                          this.handleClick(`${profile.idea[0].user_id}`)
+                        }
+                      >
+                        Check Out My Idea
+                      </button>
                     </article>
                   </article>
                 </>
