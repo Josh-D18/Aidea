@@ -4,7 +4,7 @@ function DeleteIdea(props) {
   //   this.handleSubmit = () => {};
   return (
     <section className="add">
-      <h2>Create A New Idea!</h2>
+      <h2>Are You Sure You Want To Delete This Idea?</h2>
       <form
         action=""
         method="POST"

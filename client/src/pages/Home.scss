@@ -1,6 +1,6 @@
 @import "../partials/partial";
 @import "../partials/reset";
-
+@import "../partials/mixins";
 .background {
   background-color: $qwerty-white;
   min-height: 100vh;
@@ -12,23 +12,6 @@
 }
 
 .home {
-  &__navbarList {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  &__navbarItem {
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    list-style: none;
-    color: $qwerty-white;
-    &:hover {
-      font-size: 2rem;
-      transition: 1s;
-    }
-  }
-
   &__text {
     font-size: 3rem;
     color: $qwerty-white;

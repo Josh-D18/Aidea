@@ -33,10 +33,11 @@ router.get("/:id", authorize, (req, res) => {
     );
 });
 
-router.post("/", authorize, (req, res) => {
+router.post("/profile/:id", authorize, (req, res) => {
   new Idea({
     idea: req.body.idea,
     description: req.body.description,
+    user_id: req.params.id,
   })
     .save()
     .then((newIdea) => {

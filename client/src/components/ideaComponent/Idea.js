@@ -22,6 +22,15 @@ class Idea extends Component {
         this.setState({
           idea: [res.data],
         });
+      })
+      .catch((err) => {
+        switch (err.response.status) {
+          case 403:
+            this.props.history.push("/login");
+            break;
+          default:
+            break;
+        }
       });
   };
 
@@ -30,20 +39,24 @@ class Idea extends Component {
   }
 
   render() {
+    console.log(this.state.idea);
     return (
-      <section>
-        <article>
-          <h1>Idea</h1>
+      <section className="idea">
+        <article className="idea__headingContainer">
+          <h1 className="idea__heading">Idea</h1>
         </article>
-        <article>
+        <article className="idea__container">
           {this.state.idea.map((idea) => (
-            <article key={idea.id}>
-              <h2>{idea.idea}</h2>
-              <p>{idea.description}</p>
+            <article key={idea.id} className="idea__content">
+              <h2 className="idea__title">{idea.idea}</h2>
+              <p className="idea__description">{idea.description}</p>
               <article>
                 <h3>{idea.user.user_name}</h3>
 
-                <button onClick={() => this.handleClick(idea.user.id)}>
+                <button
+                  className="ideas__btn"
+                  onClick={() => this.handleClick(idea.user.id)}
+                >
                   {idea.user.user_name}'s Profile
                 </button>
               </article>

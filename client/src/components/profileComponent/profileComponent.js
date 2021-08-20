@@ -4,10 +4,14 @@ import axios from "axios";
 class Profile extends Component {
   state = {
     profile: [],
+    token: this,
   };
 
   handleClick = (id) => {
     this.props.history.push(`/ideas/${id}`);
+  };
+  handleClickEdit = (id) => {
+    this.props.history.push(`/editIdea/${id}`);
   };
 
   getProfile = (id) => {
@@ -18,9 +22,19 @@ class Profile extends Component {
         },
       })
       .then((res) => {
+        // console.log(res);
         this.setState({
           profile: [res.data],
         });
+      })
+      .catch((err) => {
+        switch (err.response.status) {
+          case 403:
+            this.props.history.push("/login");
+            break;
+          default:
+            break;
+        }
       });
   };
   componentDidMount() {
@@ -28,30 +42,48 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.state.profile);
     return (
       <section>
         <article>
           {this.state.profile.map((profile) => (
             <article key={profile.id}>
               <h2>{profile.user_name}</h2>
-              <article>{/* <h3></h3> */}</article>
-              <article>
-                <h2>My Ideas</h2>
-                <>
-                  <article key={profile.id}>
-                    <h2>{profile.idea[0].idea}</h2>
-                    <p>{profile.idea[0].description}</p>
-                    <article>
-                      <button
-                        onClick={() =>
-                          this.handleClick(`${profile.idea[0].user_id}`)
-                        }
-                      >
-                        Check Out My Idea
-                      </button>
-                    </article>
+              <h2>My Ideas</h2>
+              <article className="idea__container">
+                {profile.idea.map((idea) => (
+                  <article key={idea.id}>
+                    <>
+                      <article>
+                        {profile.idea.length < 0 ? (
+                          <h2>No Ideas To Show!</h2>
+                        ) : (
+                          <div>
+                            <h2>{idea.idea}</h2>
+                            <p>{idea.description}</p>
+                          </div>
+                        )}
+                        <article>
+                          <button
+                            onClick={() => this.handleClick(`${idea.id}`)}
+                          >
+                            Check Out My Idea
+                          </button>
+
+                          {
+                            /* sessionStorage.getItem("token")*/
+
+                            <button
+                              onClick={() => this.handleClickEdit(`${idea.id}`)}
+                            >
+                              Edit My Idea
+                            </button>
+                          }
+                        </article>
+                      </article>
+                    </>
                   </article>
-                </>
+                ))}
               </article>
             </article>
           ))}

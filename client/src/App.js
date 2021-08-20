@@ -1,6 +1,6 @@
 import "./App.scss";
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Ideas from "./components/ideasComponent/Ideas";
 import Idea from "./components/ideaComponent/Idea";
@@ -11,8 +11,20 @@ import Register from "./pages/Signup/Signup";
 import AddIdea from "./pages/AddIdea/AddIdea";
 import EditIdea from "./pages/EditIdea/EditIdea";
 import DeleteIdea from "./pages/DeleteIdea/DeleteIdea";
+import NotFound404 from "./pages/NotFound/NotFound";
 
 class App extends Component {
+  RedirectWithStatus({ from, to, status }) {
+    return (
+      <Route
+        render={({ staticContext }) => {
+          if (staticContext) staticContext.status = status;
+          return <Redirect from={from} to={to} />;
+        }}
+      />
+    );
+  }
+
   render() {
     return (
       <section>
@@ -24,9 +36,12 @@ class App extends Component {
           <Route exact path="/profile/:id" component={Profile} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/addIdea" component={AddIdea} />
-          <Route exact path="/editIdea" component={EditIdea} />
+          <Route exact path="/addIdea/:id" component={AddIdea} />
+          <Route exact path="/editIdea/:id" component={EditIdea} />
           <Route exact path="/deleteIdea" component={DeleteIdea} />
+
+          {/* Redirects */}
+          <Route exact path="*" component={NotFound404} status={404} />
         </Switch>
       </section>
     );
