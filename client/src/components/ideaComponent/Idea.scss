@@ -54,9 +54,13 @@
 
   &__description {
     padding: 0.9rem 0.5rem;
-    white-space: nowrap;
+    // white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-break: break-all;
+    width: 100%;
+    word-spacing: 4px;
+    line-height: 25px;
   }
 
   &__btn {

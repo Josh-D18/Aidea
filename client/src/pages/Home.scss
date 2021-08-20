@@ -8,13 +8,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   filter: brightness(93.5%);
-  background-image: url("../assets/images/bubbles.jpg");
+  // background-image: url("../assets/images/bubbles.jpg");
 }
 
 .home {
   &__text {
     font-size: 3rem;
-    color: $qwerty-white;
+    color: $qwerty-blue;
   }
   &__textContainer {
     height: 100%;

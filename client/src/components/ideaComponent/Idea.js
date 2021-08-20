@@ -24,12 +24,16 @@ class Idea extends Component {
         });
       })
       .catch((err) => {
-        switch (err.response.status) {
-          case 403:
-            this.props.history.push("/login");
-            break;
-          default:
-            break;
+        if (err.response === undefined) {
+          console.error({ message: err });
+        } else {
+          switch (err.response.status) {
+            case 403:
+              this.props.history.push("/login");
+              break;
+            default:
+              break;
+          }
         }
       });
   };
@@ -39,7 +43,6 @@ class Idea extends Component {
   }
 
   render() {
-    console.log(this.state.idea);
     return (
       <section className="idea">
         <article className="idea__headingContainer">
@@ -49,9 +52,11 @@ class Idea extends Component {
           {this.state.idea.map((idea) => (
             <article key={idea.id} className="idea__content">
               <h2 className="idea__title">{idea.idea}</h2>
-              <p className="idea__description">{idea.description}</p>
+              <p className="idea__description">
+                <span>{idea.description}</span>
+              </p>
               <article>
-                <h3>{idea.user.user_name}</h3>
+                <h3>{idea.user.user_name}'s Idea</h3>
 
                 <button
                   className="ideas__btn"

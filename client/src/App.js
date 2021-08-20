@@ -38,7 +38,7 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/addIdea/:id" component={AddIdea} />
           <Route exact path="/editIdea/:id" component={EditIdea} />
-          <Route exact path="/deleteIdea" component={DeleteIdea} />
+          <Route exact path="/deleteIdea/:id" component={DeleteIdea} />
 
           {/* Redirects */}
           <Route exact path="*" component={NotFound404} status={404} />

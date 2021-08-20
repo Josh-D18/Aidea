@@ -1,25 +1,26 @@
+import axios from "axios";
 import React from "react";
 
 function DeleteIdea(props) {
-  //   this.handleSubmit = () => {};
+  const handleClick = () => {
+    axios
+      .delete(`http://localhost:8080/ideas/${props.match.params.id}`, {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+      .then(() => {
+        props.history.goBack();
+      });
+  };
+  const handleGoBack = () => {
+    props.history.goBack();
+  };
   return (
-    <section className="add">
+    <section className="delete">
       <h2>Are You Sure You Want To Delete This Idea?</h2>
-      <form
-        action=""
-        method="POST"
-        className="add__form"
-        // onSubmit={() => this.handleSubmit()}
-      >
-        <div>
-          <label>New Idea:</label>
-          <input type="text" name="idea"></input>
-        </div>
-        <div>
-          <label>Description:</label>
-          <input type="text" name="idea"></input>
-        </div>
-      </form>
+      <button onClick={handleClick}>Yes</button>
+      <button onClick={handleGoBack}>NO TAKE ME BACK!</button>
     </section>
   );
 }

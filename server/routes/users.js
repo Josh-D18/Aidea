@@ -33,4 +33,13 @@ router.get("/:id", authorize, (req, res) => {
     );
 });
 
+router.get("/user/:id", authorize, (req, res) => {
+  const tokenId = req.decoded;
+  try {
+    res.status(200).json(tokenId);
+  } catch (err) {
+    res.status(400).json({ message: `Error getting user ${req.params.id}` });
+  }
+});
+
 module.exports = router;
