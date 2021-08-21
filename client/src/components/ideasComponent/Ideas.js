@@ -47,7 +47,7 @@ class Ideas extends Component {
           <article className="ideas__container">
             {this.state.ideas.map((idea) => (
               <div className="ideas__content" key={idea.id}>
-                <h2 className="ideas__title">{idea.idea}</h2>
+                <h2 className="ideas__title">{idea.idea.toUpperCase()}</h2>
                 <p className="ideas__description">{idea.description}</p>
                 <button
                   className="ideas__btn"

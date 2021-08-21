@@ -60,7 +60,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <section>
+      <section className="profile">
         <article>
           {this.state.profile.map((profile) => (
             <article key={profile.id}>
