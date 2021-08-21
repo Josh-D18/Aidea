@@ -6,12 +6,12 @@ import axios from "axios";
 class Header extends Component {
   state = {
     token: [],
-    users: [],
+    user: [],
   };
 
-  getToken = () => {
+  getToken = (id) => {
     axios
-      .get(`http://localhost:8080/profile/token/1`, {
+      .get(`http://localhost:8080/profile/token/${id}`, {
         headers: {
           authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
@@ -23,37 +23,37 @@ class Header extends Component {
       });
   };
 
-  getUser = () => {
+  getUser = (id) => {
     axios
-      .get(`http://localhost:8080/profile/`, {
+      .get(`http://localhost:8080/profile/${id}`, {
         headers: {
           authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       })
       .then((res) => {
         this.setState({
-          users: res.data,
+          user: [res.data],
         });
       });
   };
 
-  logginInUser = this.state.token.username;
-  showUser = () => {
-    this.state.users.map((user) =>
-      user.user_name === this.state.token.username
-        ? console.log("True")
-        : console.log("F")
-    );
-  };
+  // logginInUser = this.state.token.username;
+  // showUser = () => {
+  //   this.state.users.map((user) =>
+  //     user.user_name === this.state.token.username
+  //       ? console.log("True")
+  //       : console.log("F")
+  //   );
+  // };
 
   componentDidMount() {
-    this.getToken();
-    this.getUser();
+    this.getToken(this.props.location.pathname.split("/")[2]);
+    this.getUser(this.props.location.pathname.split("/")[2]);
     // this.showUser();
   }
 
   render() {
-    console.log(this.state.token);
+    console.log(this.state.token, this.state.user);
     return (
       <header className="header">
         <nav className="header__navbar">
@@ -64,15 +64,9 @@ class Header extends Component {
             <Link to="/ideas" className="header__navbarItem">
               <li>Ideas</li>
             </Link>
-            {/* {this.state.users.map((user) =>
-              user.user_name === this.state.token.username ? (
-                <Link to={`/profile/${user.id}`} className="header__navbarItem">
-                  <li>My Profile</li> : <></>
-                </Link>
-              ) : (
-                <></>
-              )
-            )} */}
+            {this.state.user.map((user) => {
+              console.log(user);
+            })}
           </ul>
         </nav>
       </header>

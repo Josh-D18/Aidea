@@ -64,8 +64,18 @@ class Profile extends Component {
         <article>
           {this.state.profile.map((profile) => (
             <article key={profile.id}>
-              <h2 className="profile__username">{profile.user_name}</h2>
-              <h2 className="profile__title">Ideas</h2>
+              <article className="profile__headingContainer">
+                <h2 className="profile__username">
+                  {profile.user_name}'s Profile
+                </h2>
+                <h2 className="profile__title">Ideas</h2>
+              </article>
+              {/* <Link
+              to={`/addIdea/${this.props.match.params.id}`}
+              className="header__navbarItem"
+            >
+              <li>Add An Idea</li>
+            </Link> */}
               <article className="profile__container">
                 {profile.idea.map((idea) => (
                   <article key={idea.id}>
@@ -76,7 +86,7 @@ class Profile extends Component {
                         ) : (
                           <>
                             <div>
-                              <h2>{idea.idea}</h2>
+                              <h2>{idea.idea.toUpperCase()}</h2>
                               <p className="profile__description">
                                 {idea.description}
                               </p>

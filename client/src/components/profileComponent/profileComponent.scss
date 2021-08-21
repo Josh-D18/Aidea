@@ -7,9 +7,17 @@
   width: 100%;
   height: 100vh;
   &__username {
+    margin-top: 4.5rem;
   }
 
   &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__headingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__container {

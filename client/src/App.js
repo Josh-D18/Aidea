@@ -28,7 +28,8 @@ class App extends Component {
   render() {
     return (
       <section>
-        <Header />
+        <Route component={Header} />
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/ideas" component={Ideas} />
