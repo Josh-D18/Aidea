@@ -13,6 +13,10 @@
     padding-left: 3rem;
     padding-right: 3rem;
   }
+
+  @media (min-width: 1000px) and (max-width: 3200px) {
+  }
+
   &__heading {
     font-size: 2rem;
   }
@@ -28,9 +32,22 @@
     background-color: $qwerty-white;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
     @include tabletView {
       padding-left: 3rem;
       padding-right: 3rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+    @media (min-width: 1095px) and (max-width: 1329px) {
+      margin-left: 15rem;
+      margin-right: 15rem;
+    }
+
+    @media (min-width: 1329px) and (max-width: 3200px) {
+      margin-left: 20rem;
+      margin-right: 20rem;
     }
 
     &:hover {

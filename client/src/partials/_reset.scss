@@ -1,4 +1,5 @@
 // @use "./font";
+@use "./fonts";
 @import "./_partial.scss";
 
 /* Box sizing rules */
@@ -9,7 +10,7 @@
 }
 
 * {
-  font-family: "AvenirNext";
+  font-family: "Oswald";
 }
 /* Remove default padding */
 ul[class],
@@ -41,6 +42,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "Oswald";
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */

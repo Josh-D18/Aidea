@@ -12,7 +12,7 @@ function Home() {
       <main>
         <article className="home__textContainer">
           <h1 className="home__text">Aidea</h1>
-          <p>Where ideas are born</p>
+          <p className="home__description">Where ideas are born</p>
           <article>
             <button className="home__btn" onClick={() => handleClick()}>
               Take ME TO THE IDEAS

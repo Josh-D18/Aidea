@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./AddIdea.scss";
 
 class AddForm extends Component {
   state = {
@@ -30,28 +31,39 @@ class AddForm extends Component {
   };
   render() {
     return (
-      <section className="add">
-        <h2>Create A New Idea!</h2>
-        <form
-          action=""
-          method="POST"
-          className="add__form"
-          onSubmit={this.handleSubmit}
-        >
-          <div className="">
-            <label>New Idea:</label>
-            <input type="text" name="idea" onChange={this.handleChange}></input>
-          </div>
-          <div className="">
-            <label>Description:</label>
-            <input
-              type="text"
-              name="description"
-              onChange={this.handleChange}
-            ></input>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+      <section className="form">
+        <article className="form__container">
+          <h1 className="form__heading">Login</h1>
+          <form
+            action=""
+            method="POST"
+            className="form"
+            onSubmit={this.handleSubmit}
+          >
+            <div className="form__usernameContainer">
+              <label>Idea:</label>
+              <input
+                name="user_name"
+                className="form__username"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form__passwordContainer">
+              <label>Description:</label>
+              <input
+                name="password"
+                className="form__password"
+                onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit" className="form__btn">
+              Submit
+            </button>
+          </form>
+          <button onClick={this.handleClick} className="form__btn">
+            Back
+          </button>
+        </article>
       </section>
     );
   }

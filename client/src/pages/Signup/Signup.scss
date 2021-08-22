@@ -5,14 +5,16 @@
 .signup {
   padding-left: 1rem;
   padding-right: 1rem;
-  @include desktopView {
-    padding-left: 20rem;
-    padding-right: 20rem;
-  }
   @include tabletView {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+
+  @media (min-width: 1000px) and (max-width: 3200px) {
+    padding-left: 20rem;
+    padding-right: 20rem;
+  }
+
   &__heading {
     font-size: 2rem;
   }
@@ -28,11 +30,14 @@
     background-color: $qwerty-white;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
     @include tabletView {
       padding-left: 3rem;
       padding-right: 3rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
     }
-
     &:hover {
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
       transition: 1s;

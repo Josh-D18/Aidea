@@ -11,6 +11,19 @@
       margin-top: 2rem;
       padding: 1rem;
     }
+
+    @include tabletView {
+      padding-left: 7rem;
+      padding-right: 7rem;
+    }
+    // @include desktopView {
+    //   padding-left: 20rem;
+    //   padding-right: 20rem;
+    // }
+    @media (min-width: 1000px) and (max-width: 3200px) {
+      padding-left: 20rem;
+      padding-right: 20rem;
+    }
   }
 
   &__heading {
@@ -33,7 +46,8 @@
     margin-bottom: 2rem;
     background-color: $qwerty-white;
     @include tabletView {
-      padding-left: 20rem;
+      padding-left: 7rem;
+      padding-right: 7rem;
     }
 
     &:hover {

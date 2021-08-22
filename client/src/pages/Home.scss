@@ -1,8 +1,9 @@
 @import "../partials/partial";
 @import "../partials/reset";
 @import "../partials/mixins";
+
 .background {
-  background-color: $qwerty-white;
+  // background-color: $qwerty-white;
   min-height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,7 +14,7 @@
 
 .home {
   &__text {
-    font-size: 3rem;
+    font-size: 6rem;
     color: $qwerty-blue;
   }
   &__textContainer {
@@ -23,6 +24,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
 
   &__btn {

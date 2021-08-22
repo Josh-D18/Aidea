@@ -53,6 +53,11 @@ class Profile extends Component {
         }
       });
   };
+
+  handleClickAdd = () => {
+    this.props.history.push(`/addIdea/${this.props.match.params.id}`);
+  };
+
   componentDidMount() {
     this.getToken();
     this.getProfile(this.props.match.params.id);
@@ -66,16 +71,20 @@ class Profile extends Component {
             <article key={profile.id}>
               <article className="profile__headingContainer">
                 <h2 className="profile__username">
-                  {profile.user_name}'s Profile
+                  {profile.user_name === this.state.token[0].user_name
+                    ? "My Profile"
+                    : `${profile.user_name}'s Profile`}
                 </h2>
                 <h2 className="profile__title">Ideas</h2>
               </article>
-              {/* <Link
-              to={`/addIdea/${this.props.match.params.id}`}
-              className="header__navbarItem"
-            >
-              <li>Add An Idea</li>
-            </Link> */}
+              {profile.user_name === this.state.token[0].user_name ? (
+                <button onClick={this.handleClickAdd} className="profile__btn">
+                  Add An Idea
+                </button>
+              ) : (
+                <></>
+              )}
+
               <article className="profile__container">
                 {profile.idea.map((idea) => (
                   <article key={idea.id}>
@@ -100,7 +109,7 @@ class Profile extends Component {
                               </button>
                               <span>
                                 {this.state.token.map((user) =>
-                                  user.username === profile.user_name ? (
+                                  user.user_name === profile.user_name ? (
                                     <div key={idea.id}>
                                       <button
                                         className="profile__btn"

@@ -9,9 +9,9 @@ class Header extends Component {
     user: [],
   };
 
-  getToken = (id) => {
+  getToken = () => {
     axios
-      .get(`http://localhost:8080/profile/token/${id}`, {
+      .get(`http://localhost:8080/profile/user/1`, {
         headers: {
           authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
@@ -23,37 +23,15 @@ class Header extends Component {
       });
   };
 
-  getUser = (id) => {
-    axios
-      .get(`http://localhost:8080/profile/${id}`, {
-        headers: {
-          authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      })
-      .then((res) => {
-        this.setState({
-          user: [res.data],
-        });
-      });
+  handleClick = (id) => {
+    this.props.history.push(`/profile/${id}`);
   };
 
-  // logginInUser = this.state.token.username;
-  // showUser = () => {
-  //   this.state.users.map((user) =>
-  //     user.user_name === this.state.token.username
-  //       ? console.log("True")
-  //       : console.log("F")
-  //   );
-  // };
-
   componentDidMount() {
-    this.getToken(this.props.location.pathname.split("/")[2]);
-    this.getUser(this.props.location.pathname.split("/")[2]);
-    // this.showUser();
+    this.getToken();
   }
 
   render() {
-    console.log(this.state.token, this.state.user);
     return (
       <header className="header">
         <nav className="header__navbar">
@@ -64,8 +42,17 @@ class Header extends Component {
             <Link to="/ideas" className="header__navbarItem">
               <li>Ideas</li>
             </Link>
-            {this.state.user.map((user) => {
-              console.log(user);
+            {this.state.token.map((user) => {
+              return (
+                <span
+                  onClick={() => this.handleClick(user.id)}
+                  key={user.id}
+                  to={`/profile/${user.id}`}
+                  className="header__navbarItem"
+                >
+                  <li>My Profile</li>
+                </span>
+              );
             })}
           </ul>
         </nav>

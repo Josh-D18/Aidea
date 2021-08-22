@@ -51,7 +51,7 @@ class Idea extends Component {
         <article className="idea__container">
           {this.state.idea.map((idea) => (
             <article key={idea.id} className="idea__content">
-              <h2 className="idea__title">{idea.idea}</h2>
+              <h2 className="idea__title">{idea.idea.toUpperCase()}</h2>
               <p className="idea__description">
                 <span>{idea.description}</span>
               </p>

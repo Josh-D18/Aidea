@@ -3,7 +3,7 @@
 @import "../../partials/mixins";
 
 .header {
-  background-color: $qwerty-blue;
+  background-color: $qwerty-white;
   &__navbarList {
     display: flex;
     justify-content: space-evenly;
@@ -11,14 +11,16 @@
   }
 
   &__navbarItem {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     text-decoration: none;
     list-style: none;
-    color: $qwerty-white;
-    &:hover {
-      font-size: 1.3rem;
-      transition: 2s;
-    }
+    color: $qwerty-blue;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    // &:hover {
+    //   font-size: 1.3rem;
+    //   transition: 1.3s;
+    // }
   }
 }
