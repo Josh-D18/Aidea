@@ -44,12 +44,18 @@ class Profile extends Component {
         });
       })
       .catch((err) => {
-        switch (err.response.status) {
-          case 403:
-            this.props.history.push("/login");
-            break;
-          default:
-            break;
+        if (err.response === undefined) {
+          console.error({ message: err });
+        } else if (err === "TypeError") {
+          console.error({ message: err });
+        } else {
+          switch (err.response.status) {
+            case 403:
+              this.props.history.push("/login");
+              break;
+            default:
+              break;
+          }
         }
       });
   };
@@ -61,6 +67,12 @@ class Profile extends Component {
   componentDidMount() {
     this.getToken();
     this.getProfile(this.props.match.params.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.getProfile(this.props.match.params.id);
+    }
   }
 
   render() {

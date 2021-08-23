@@ -31,36 +31,36 @@ class AddForm extends Component {
   };
   render() {
     return (
-      <section className="form">
-        <article className="form__container">
-          <h1 className="form__heading">Login</h1>
+      <section className="add">
+        <article className="add__container">
+          <h1 className="add__heading">Login</h1>
           <form
             action=""
             method="POST"
-            className="form"
+            className="add"
             onSubmit={this.handleSubmit}
           >
-            <div className="form__usernameContainer">
+            <div className="add__usernameContainer">
               <label>Idea:</label>
               <input
-                name="user_name"
-                className="form__username"
+                name="idea"
+                className="add__username"
                 onChange={this.handleChange}
               />
             </div>
             <div className="form__passwordContainer">
               <label>Description:</label>
               <input
-                name="password"
-                className="form__password"
+                name="description"
+                className="add__password"
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit" className="form__btn">
+            <button type="submit" className="add__btn">
               Submit
             </button>
           </form>
-          <button onClick={this.handleClick} className="form__btn">
+          <button onClick={this.handleClick} className="add__btn">
             Back
           </button>
         </article>

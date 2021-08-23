@@ -3,7 +3,7 @@
 @import "../../partials/mixins";
 
 .ideas {
-  background-color: $qwerty-blue;
+  // background-color: $qwerty-blue;
   &__container {
     display: flex;
     @include mobileView {
@@ -27,13 +27,13 @@
   }
 
   &__heading {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-top: 2rem;
     &Container {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      color: $qwerty-alabaster;
+      color: $qwerty-blue;
     }
   }
 

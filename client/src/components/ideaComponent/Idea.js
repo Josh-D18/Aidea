@@ -26,6 +26,8 @@ class Idea extends Component {
       .catch((err) => {
         if (err.response === undefined) {
           console.error({ message: err });
+        } else if (err === "TypeError") {
+          console.error({ message: err });
         } else {
           switch (err.response.status) {
             case 403:
