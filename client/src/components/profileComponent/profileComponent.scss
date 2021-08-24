@@ -8,10 +8,21 @@
   height: 100vh;
   &__username {
     margin-top: 4.5rem;
+    color: $qwerty-blue;
+    font-size: 2rem;
+    &:hover {
+      font-size: 1.8rem;
+    }
   }
 
   &__title {
     margin-bottom: 3rem;
+    color: $qwerty-blue;
+    font-style: oblique;
+    font-size: 2rem;
+    &:hover {
+      font-size: 1.8rem;
+    }
   }
 
   &__headingContainer {
@@ -63,13 +74,32 @@
     color: $qwerty-blue;
     font-size: 1rem;
     margin: 0.6rem;
-    // position: relative;
-    // left: 24rem;
 
     &:hover {
       background-color: $qwerty-blue;
       color: $qwerty-black;
       transition: 0.8s;
     }
+  }
+
+  &__btn--add {
+    border: 0px;
+    padding: 0.7rem 1rem;
+    border-radius: 1rem;
+    background-color: $qwerty-black;
+    color: $qwerty-blue;
+    font-size: 1rem;
+    margin: 0.6rem;
+    margin-bottom: 3rem;
+    &:hover {
+      background-color: $qwerty-blue;
+      color: $qwerty-black;
+      transition: 0.8s;
+    }
+  }
+
+  &__btnContainer {
+    display: flex;
+    justify-content: center;
   }
 }

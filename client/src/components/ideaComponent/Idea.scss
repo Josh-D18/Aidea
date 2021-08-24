@@ -3,7 +3,7 @@
 @import "../../partials/mixins";
 
 .idea {
-  background-color: $qwerty-blue;
+  // background-color: $qwerty-blue;
   width: 100%;
   height: 100vh;
   &__container {
@@ -19,8 +19,9 @@
   }
 
   &__heading {
-    font-size: 2rem;
-    margin-top: 2rem;
+    font-size: 2.8rem;
+    margin-top: 8rem;
+    color: $qwerty-blue;
     &Container {
       display: flex;
       flex-direction: row;

@@ -29,11 +29,15 @@ class AddForm extends Component {
       })
       .catch((err) => console.log(err));
   };
+
+  handleClick = () => {
+    this.props.history.push(`/profile/${this.props.match.params.id}`);
+  };
   render() {
     return (
       <section className="add">
         <article className="add__container">
-          <h1 className="add__heading">Login</h1>
+          <h1 className="add__heading">Add Your Brillant Idea</h1>
           <form
             action=""
             method="POST"
@@ -50,7 +54,7 @@ class AddForm extends Component {
             </div>
             <div className="form__passwordContainer">
               <label>Description:</label>
-              <input
+              <textarea
                 name="description"
                 className="add__password"
                 onChange={this.handleChange}

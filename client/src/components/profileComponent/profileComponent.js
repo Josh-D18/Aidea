@@ -5,7 +5,7 @@ import "./profileComponent.scss";
 class Profile extends Component {
   state = {
     profile: [],
-    token: null,
+    token: [],
   };
 
   handleClick = (id) => {
@@ -18,19 +18,6 @@ class Profile extends Component {
     this.props.history.push(`/deleteIdea/${id}`);
   };
 
-  getToken = () => {
-    axios
-      .get(`http://localhost:8080/profile/user/1`, {
-        headers: {
-          authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      })
-      .then((res) => {
-        this.setState({
-          token: [res.data],
-        });
-      });
-  };
   getProfile = (id) => {
     axios
       .get(`http://localhost:8080/profile/${id}`, {
@@ -65,8 +52,19 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    this.getToken();
-    this.getProfile(this.props.match.params.id);
+    return axios
+      .get(`http://localhost:8080/profile/user/1`, {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        this.setState({
+          token: [res.data],
+        });
+        this.getProfile(this.props.match.params.id);
+      })
+      .catch((err) => console.error({ message: err }));
   }
 
   componentDidUpdate(prevProps) {
@@ -83,16 +81,22 @@ class Profile extends Component {
             <article key={profile.id}>
               <article className="profile__headingContainer">
                 <h2 className="profile__username">
-                  {profile.user_name === this.state.token[0].user_name
+                  {this.state.token[0].user_name &&
+                  profile.user_name === this.state.token[0].user_name
                     ? "My Profile"
                     : `${profile.user_name}'s Profile`}
                 </h2>
                 <h2 className="profile__title">Ideas</h2>
               </article>
               {profile.user_name === this.state.token[0].user_name ? (
-                <button onClick={this.handleClickAdd} className="profile__btn">
-                  Add An Idea
-                </button>
+                <div className="profile__btnContainer">
+                  <button
+                    onClick={this.handleClickAdd}
+                    className="profile__btn--add"
+                  >
+                    Add An Idea
+                  </button>
+                </div>
               ) : (
                 <></>
               )}

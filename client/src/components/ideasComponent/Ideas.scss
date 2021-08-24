@@ -74,5 +74,10 @@
     background-color: $qwerty-black;
     color: $qwerty-blue;
     font-size: 1rem;
+    &:hover {
+      background-color: $qwerty-blue;
+      color: $qwerty-black;
+      transition: 0.8s;
+    }
   }
 }

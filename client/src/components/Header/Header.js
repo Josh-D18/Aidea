@@ -7,6 +7,7 @@ class Header extends Component {
   state = {
     token: [],
     user: [],
+    loggedIn: false,
   };
 
   getToken = () => {
@@ -19,6 +20,7 @@ class Header extends Component {
       .then((res) => {
         this.setState({
           token: [res.data],
+          loggedIn: true,
         });
       });
   };
@@ -29,6 +31,20 @@ class Header extends Component {
 
   componentDidMount() {
     this.getToken();
+  }
+
+  logout() {
+    sessionStorage.removeItem("token");
+    this.setState({
+      loggedIn: false,
+    });
+    this.props.history.push(`/`);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location.key !== prevProps.location.key) {
+      this.getToken();
+    }
   }
 
   render() {
@@ -42,8 +58,8 @@ class Header extends Component {
             <Link to="/ideas" className="header__navbarItem">
               <li>Ideas</li>
             </Link>
-            {this.state.token.map((user) => {
-              return (
+            {this.state.loggedIn &&
+              this.state.token.map((user) => (
                 <span
                   onClick={() => this.handleClick(user.id)}
                   key={user.id}
@@ -52,8 +68,15 @@ class Header extends Component {
                 >
                   <li>My Profile</li>
                 </span>
-              );
-            })}
+              ))}
+            {this.state.loggedIn && (
+              <span
+                onClick={() => this.logout()}
+                className="header__navbarItem"
+              >
+                <li>Logout</li>
+              </span>
+            )}
           </ul>
         </nav>
       </header>

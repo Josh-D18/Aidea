@@ -36,6 +36,7 @@ class Ideas extends Component {
   componentDidMount() {
     this.getIdeas();
   }
+  componentDidUpdate() {}
 
   render() {
     return (

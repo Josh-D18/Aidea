@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./EditIdea.scss";
 
 class EditForm extends Component {
   state = {
@@ -41,15 +42,19 @@ class EditForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(
-      `http://localhost:8080/ideas/${this.props.match.params.id}`,
-      this.state.formData,
-      {
-        headers: {
-          authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-      }
-    );
+    axios
+      .put(
+        `http://localhost:8080/ideas/${this.props.match.params.id}`,
+        this.state.formData,
+        {
+          headers: {
+            authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then(() => {
+        this.props.history.goBack();
+      });
   };
 
   handleClick = () => {
@@ -62,18 +67,18 @@ class EditForm extends Component {
 
   render() {
     return (
-      <section className="add">
-        <h2>Edit Your Idea!</h2>
+      <section className="edit">
+        <h2 className="edit__heading">Edit Your Idea!</h2>
         <form
           action=""
           method="POST"
-          className="add__form"
+          className="edit__form"
           onSubmit={this.handleSubmit}
         >
           {this.state.idea.map((idea) => (
             <article key={idea.id}>
-              <div className="">
-                <label>Idea: {idea.idea}</label>
+              <div className="edit__content">
+                <label className="">Idea: {idea.idea}</label>
               </div>
               <div className="">
                 <label>Description:</label>
@@ -86,9 +91,13 @@ class EditForm extends Component {
               </div>
             </article>
           ))}
-          <button type="submit">Submit</button>
+          <button className="edit__btn" type="submit">
+            Submit
+          </button>
         </form>
-        <button onClick={this.handleClick}>Back</button>
+        <button className="edit__btn" onClick={this.handleClick}>
+          Back
+        </button>
       </section>
     );
   }
