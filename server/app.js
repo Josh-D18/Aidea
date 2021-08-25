@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.redirect("/ideas");

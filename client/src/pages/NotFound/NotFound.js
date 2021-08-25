@@ -1,10 +1,18 @@
 import React from "react";
+import "./NotFound.scss";
 
-function NotFound404() {
-  //   this.handleSubmit = () => {};
+function NotFound404(props) {
+  const handleClick = () => {
+    props.history.goBack();
+  };
   return (
     <section className="notFound">
-      <h2>Page Not Found!</h2>
+      <div>
+        <h2 className="notFound__heading">Page Not Found!</h2>
+      </div>
+      <button onClick={handleClick} className="notFound__btn">
+        Go Back
+      </button>
     </section>
   );
 }
