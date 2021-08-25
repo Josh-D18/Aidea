@@ -5,13 +5,29 @@ const ideasRouter = require("./routes/ideas");
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
+const morgan = require("morgan");
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
+app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 const PORT = process.env.PORT || 8080;
+
+if (process.env.NODE_ENV === "production") {
+  // Serve any static files
+  app.use(express.static(path.resolve(__dirname, "..", "client", "build")));
+}
+
+if (process.env.NODE_ENV === "production") {
+  // Handle React routing, return all requests to React app
+  app.get("*", (request, response) => {
+    response.sendFile(
+      path.resolve(__dirname, "..", "client", "build", "index.html")
+    );
+  });
+}
 
 app.get("/", (req, res) => {
   res.redirect("/ideas");
