@@ -1,0 +1,54 @@
+@import "../partials/partial";
+@import "../partials/reset";
+@import "../partials/mixins";
+
+.background {
+  // background-color: $qwerty-white;
+  // min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(93.5%);
+  // background-image: url("../assets/images/bubbles.jpg");
+}
+
+.home {
+  &__text {
+    font-size: 6rem;
+    color: $qwerty-blue;
+  }
+  &__textContainer {
+    height: 100%;
+    min-height: 71vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__description {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+    color: $qwerty-blue;
+  }
+
+  &__btn {
+    cursor: pointer;
+    background-color: $qwerty-blue;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 103px;
+    height: 98px;
+    border: 1px transparent;
+    color: $qwerty-white;
+    &:hover {
+      background-color: #008cba;
+      color: white;
+      transition: 1s;
+      font-size: 16px;
+      border-radius: 50%;
+      width: 103px;
+      height: 98px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../partials/partial";
+@import "../../partials/reset";
+@import "../../partials/mixins";
+
+.header {
+  background-color: $qwerty-white;
+  &__navbarList {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+  }
+
+  &__navbarItem {
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+    color: $qwerty-blue;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    // &:hover {
+    //   font-size: 1.3rem;
+    //   transition: 1.3s;
+    // }
+  }
+}

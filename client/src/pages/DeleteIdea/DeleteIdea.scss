@@ -1,0 +1,36 @@
+@import "../../partials/partial";
+@import "../../partials/reset";
+@import "../../partials/mixins";
+
+.delete {
+  display: flex;
+  justify-content: center;
+
+  &__btn {
+    border: 0px;
+    padding: 0.7rem 1rem;
+    border-radius: 1rem;
+    background-color: $qwerty-black;
+    color: $qwerty-blue;
+    font-size: 1rem;
+    margin: 0.6rem;
+
+    &:hover {
+      background-color: $qwerty-blue;
+      color: $qwerty-black;
+      transition: 0.8s;
+    }
+  }
+
+  &__title {
+    padding: 1rem;
+    padding-left: 3.4rem;
+  }
+
+  &__btnContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 14rem;
+  }
+}

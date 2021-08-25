@@ -1,0 +1,89 @@
+@import "../../partials/partial";
+@import "../../partials/reset";
+@import "../../partials/mixins";
+
+.signup {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @include tabletView {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @media (min-width: 1000px) and (max-width: 3200px) {
+    padding-left: 20rem;
+    padding-right: 20rem;
+  }
+
+  &__heading {
+    font-size: 2rem;
+  }
+
+  &__container {
+    margin-top: 10rem;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    background-color: $qwerty-white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
+    @include tabletView {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+      transition: 1s;
+    }
+  }
+  &__username {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.9vw 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid;
+    margin-bottom: 2rem;
+    &Contanier {
+    }
+  }
+
+  &__password {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    margin: 0.9vw 0;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid;
+    margin-bottom: 2rem;
+    &Contanier {
+    }
+  }
+
+  &__btn {
+    border: 0px;
+    padding: 0.7rem 1rem;
+    border-radius: 1rem;
+    background-color: $qwerty-black;
+    color: $qwerty-blue;
+    font-size: 1rem;
+    margin: 0.6rem;
+
+    &:hover {
+      background-color: $qwerty-blue;
+      color: $qwerty-black;
+      transition: 0.8s;
+    }
+  }
+}
