@@ -49,16 +49,14 @@
   }
   &__username {
     display: block;
-    width: 100%;
-    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+
     margin: 0.9vw 0;
     border: 0;
     border-radius: 5px;
-    font-size: 20px;
-    border: 1px solid;
+    font-size: 1.65rem;
     margin-bottom: 2rem;
-    &Contanier {
-    }
+    // &Contanier {
+    // }
   }
 
   &__password {
@@ -71,7 +69,22 @@
     font-size: 20px;
     border: 1px solid;
     margin-bottom: 2rem;
-    &Contanier {
+    // &Contanier {
+    // }
+  }
+
+  &__description {
+    width: 15.9375rem;
+    height: 7.0625rem;
+
+    @include tabletView {
+      width: 35.9375rem;
+      height: 7.0625rem;
+    }
+
+    @include desktopView {
+      width: 35.9375rem;
+      height: 7.0625rem;
     }
   }
 

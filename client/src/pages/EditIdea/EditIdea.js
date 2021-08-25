@@ -68,36 +68,42 @@ class EditForm extends Component {
   render() {
     return (
       <section className="edit">
-        <h2 className="edit__heading">Edit Your Idea!</h2>
-        <form
-          action=""
-          method="POST"
-          className="edit__form"
-          onSubmit={this.handleSubmit}
-        >
-          {this.state.idea.map((idea) => (
-            <article key={idea.id}>
-              <div className="edit__content">
-                <label className="">Idea: {idea.idea}</label>
-              </div>
-              <div className="">
-                <label>Description:</label>
-                <input
-                  type="text"
-                  name="description"
-                  onChange={this.handleChange}
-                  placeholder={idea.description}
-                />
-              </div>
-            </article>
-          ))}
-          <button className="edit__btn" type="submit">
-            Submit
+        <article className="edit__container">
+          <h2 className="edit__heading">Edit Your Idea!</h2>
+          <form
+            action=""
+            method="POST"
+            className="edit__form"
+            onSubmit={this.handleSubmit}
+          >
+            {this.state.idea.map((idea) => (
+              <article key={idea.id}>
+                <div className="edit__content">
+                  <label className="edit__username">
+                    Your Idea:
+                    <br /> {idea.idea}
+                  </label>
+                </div>
+                <div className="">
+                  <label>Description:</label> <br />
+                  <textarea
+                    type="text"
+                    name="description"
+                    onChange={this.handleChange}
+                    placeholder={idea.description}
+                    className="edit__description"
+                  />
+                </div>
+              </article>
+            ))}
+            <button className="edit__btn" type="submit">
+              Submit
+            </button>
+          </form>
+          <button className="edit__btn" onClick={this.handleClick}>
+            Back
           </button>
-        </form>
-        <button className="edit__btn" onClick={this.handleClick}>
-          Back
-        </button>
+        </article>
       </section>
     );
   }

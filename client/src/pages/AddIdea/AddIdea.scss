@@ -38,8 +38,8 @@
     }
 
     @media (min-width: 1000px) and (max-width: 3200px) {
-      margin-left: 20rem;
-      margin-right: 20rem;
+      margin-left: 8rem;
+      margin-right: 8rem;
     }
 
     &:hover {
@@ -57,8 +57,8 @@
     font-size: 20px;
     border: 1px solid;
     margin-bottom: 2rem;
-    &Contanier {
-    }
+    // &Contanier {
+    // }
   }
 
   &__password {
@@ -71,9 +71,10 @@
     font-size: 20px;
     border: 1px solid;
     margin-bottom: 2rem;
+    height: 14rem;
 
-    &Contanier {
-    }
+    // &Contanier {
+    // }
   }
 
   &__btn {

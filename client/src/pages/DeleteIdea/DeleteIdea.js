@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import "./DeleteIdea.scss";
 
 function DeleteIdea(props) {
   const handleClick = () => {
@@ -18,9 +19,19 @@ function DeleteIdea(props) {
   };
   return (
     <section className="delete">
-      <h2>Are You Sure You Want To Delete This Idea?</h2>
-      <button onClick={handleClick}>Yes</button>
-      <button onClick={handleGoBack}>NO TAKE ME BACK!</button>
+      <div className="delete__btnContainer">
+        <h2 className="delete__title">
+          Are You Sure You Want To Delete This Idea?
+        </h2>
+        <div>
+          <button className="delete__btn" onClick={handleClick}>
+            Yes
+          </button>
+          <button className="delete__btn" onClick={handleGoBack}>
+            NO TAKE ME BACK!
+          </button>
+        </div>
+      </div>
     </section>
   );
 }

@@ -21,8 +21,10 @@
     //   padding-right: 20rem;
     // }
     @media (min-width: 1000px) and (max-width: 3200px) {
-      padding-left: 20rem;
-      padding-right: 20rem;
+      padding-left: 8rem;
+      padding-right: 8rem;
+      margin-left: 17rem;
+      margin-right: 17rem;
     }
   }
 
@@ -49,7 +51,6 @@
       padding-left: 7rem;
       padding-right: 7rem;
     }
-
     &:hover {
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
       transition: 1s;
