@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
-const PORT = process.env.PORT || 8080;
+app.set("PORT", process.env.PORT || 8080);
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
@@ -40,6 +40,6 @@ app.use("/profile", usersRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 
-app.listen(PORT, () => {
-  console.log("Listening to", PORT);
+app.listen(app.get("PORT"), () => {
+  console.log("Listening to" + app.get("PORT"));
 });
