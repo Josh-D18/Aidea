@@ -11,14 +11,16 @@ function Home() {
     <section className="background">
       <main>
         <article className="home__textContainer">
-          <h1 className="home__text">Aidea</h1>
+          <h1 className="home__text">Dogeia</h1>
           <p className="home__description">Where ideas are born</p>
           <article>
             <button className="home__btn" onClick={() => handleClick()}>
               Take ME TO THE IDEAS
             </button>
           </article>
+          <article className="background__moveableImage"></article>
         </article>
+        <article className="background__image"></article>
       </main>
     </section>
   );

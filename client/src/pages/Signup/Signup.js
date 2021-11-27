@@ -5,6 +5,7 @@ import "./Signup.scss";
 export default class Signup extends Component {
   state = {
     formData: null,
+    errors: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -16,10 +17,15 @@ export default class Signup extends Component {
     axios
       .post("http://localhost:8080/register", this.state.formData)
       .then((res) => {
+        console.log(res);
         sessionStorage.setItem("token", res.data.token);
         this.props.history.push("/login");
       })
-      .catch((err) => console.error("Error", err));
+      .catch((err) =>
+        this.setState({
+          errors: true,
+        })
+      );
   };
 
   handleClick = () => {
@@ -40,7 +46,11 @@ export default class Signup extends Component {
             <div className="signup__usernameContainer">
               <label>Username:</label>
               <input
-                className="signup__username"
+                className={
+                  this.state.errors
+                    ? "signup__username signup__errors"
+                    : "signup__username"
+                }
                 name="user_name"
                 onChange={this.handleChange}
               />
@@ -48,7 +58,11 @@ export default class Signup extends Component {
             <div className="signup__passwordContainer">
               <label>Password:</label>
               <input
-                className="signup__password"
+                className={
+                  this.state.errors
+                    ? "signup__password signup__errors"
+                    : "signup__password"
+                }
                 name="password"
                 onChange={this.handleChange}
               />

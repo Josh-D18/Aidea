@@ -6,6 +6,7 @@ class Profile extends Component {
   state = {
     profile: [],
     token: [],
+    noIdea: false,
   };
 
   handleClick = (id) => {
@@ -88,6 +89,7 @@ class Profile extends Component {
                 </h2>
                 <h2 className="profile__title">Ideas</h2>
               </article>
+
               {profile.user_name === this.state.token[0].user_name ? (
                 <div className="profile__btnContainer">
                   <button
@@ -106,8 +108,8 @@ class Profile extends Component {
                   <article key={idea.id}>
                     <>
                       <article key={idea.id} className="profile__content">
-                        {profile.idea.length < 0 ? (
-                          <h2>No Ideas To Show!</h2>
+                        {idea.idea === true ? (
+                          <h2>{idea.description}</h2>
                         ) : (
                           <>
                             <div>

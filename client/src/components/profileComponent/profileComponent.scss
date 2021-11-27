@@ -3,9 +3,7 @@
 @import "../../partials/mixins";
 
 .profile {
-  // background-color: $qwerty-blue;
   width: 100%;
-  // height: 100vh;
   &__username {
     margin-top: 4.5rem;
     color: $qwerty-blue;
@@ -102,4 +100,13 @@
     display: flex;
     justify-content: center;
   }
+
+  // &__moveableImage {
+  //   background-image: url("../assets/images/sleepydoge.png");
+  //   width: 30rem;
+  //   height: 68vh;
+  //   position: absolute;
+  //   left: 54rem;
+  //   filter: brightness(1.1);
+  // }
 }

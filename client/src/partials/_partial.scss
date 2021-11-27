@@ -4,7 +4,7 @@
 $qwerty-black: #323232;
 $qwerty-silver: #afafaf;
 $qwerty-white: #ffffff;
-$qwerty-blue: #7df9ff;
+$qwerty-blue: #cb9800;
 
 // --Secondary Colors
 $qwerty-darkblack: #000000;
@@ -34,6 +34,6 @@ $demi: 600;
 $bold: 700;
 
 // --Breakpoint
-$media-desktop: "only screen and (width : 1440px)";
-$media-tablet: "only screen and (min-width : 768px)";
-$media-mobile: "only screen and (min-width : 320px)";
+$media-desktop: "screen and (min-width : 1440px)";
+$media-tablet: "screen and (min-width : 768px)";
+$media-mobile: "screen and (min-width : 320px)";

@@ -3,13 +3,33 @@
 @import "../partials/mixins";
 
 .background {
-  // background-color: $qwerty-white;
-  // min-height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(93.5%);
-  // background-image: url("../assets/images/bubbles.jpg");
+  filter: brightness(103.5%);
+
+  &__image {
+    background-image: url("../assets/images/dogeimg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media screen and (min-width: 720px) {
+      width: 32vw;
+      height: 43vh;
+      position: absolute;
+      left: 0rem;
+      top: 11rem;
+    }
+
+    @media screen and (min-width: 1250px) {
+      width: 35vw;
+      height: 73vh;
+      position: absolute;
+      left: 0rem;
+      top: 9rem;
+    }
+  }
 }
 
 .home {
@@ -42,7 +62,7 @@
     border: 1px transparent;
     color: $qwerty-white;
     &:hover {
-      background-color: #008cba;
+      background-color: #e1b303;
       color: white;
       transition: 1s;
       font-size: 16px;

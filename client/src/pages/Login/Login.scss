@@ -98,4 +98,8 @@
       transition: 0.8s;
     }
   }
+
+  &__errors {
+    border: 1px solid red;
+  }
 }
